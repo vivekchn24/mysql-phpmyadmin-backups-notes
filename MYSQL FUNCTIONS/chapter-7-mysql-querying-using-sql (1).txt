@@ -1,0 +1,92 @@
+>>ORDER BY FUNCTIONS:
+SELECT * FROM student ORDER BY salary; (BY DEFAULT ASCENDING VALUES ARE RETURNS)
+
+SELECT * FROM student ORDER BY salary DESC; (DESCENDING VALUES ARE RETURNS)
+
+>>ORDER BY DATA ON THE MULTIPLE COLUMNS FUNCTIONS: 
+
+SELECT * FROM student ORDER BY salary DESC,age ASC;
+
+>>ORDER BY DATA ON THE BASIS OF AN EXPRESSION FUNCTIONS:
+
+SELECT id,name,age,salary,salary*0.10 FROM student WHERE salary>10000 ORDER BY age DESC,salary*0.10 ASC; (AGE ARE IN DESCENDING AND THE SALARY ARE ON THE BASIS OF THE ASCENDING LIKE MULTIPLE PERSON HAS SAME AGE LIKE 42 THEN ALL THE 
+42 AGE PERSON SALARY ARE DISPLAY ON THE BASIS OF THE ASCENDING)
+
+>>NESTED GROUPS HAVING THE MULTIPLE COLUMNS:
+
+SELECT name,department, COUNT(*) FROM student GROUP BY salary; (so basically count function row count karega and hame salary ke grop banake uske basis pe name,department and count(*) lake dega)
+
+SELECT id,name,department FROM student GROUP BY department;  (department ko group karke uske basis pe hame columns lake deta hai like id,name,department)
+
+>>AGGREGATE FUNCTIONS:
+
+SELECT AVG(salary) FROM student; (calculate the average salary of the teachers table)
+
+SELECT COUNT(department) FROM posting; (calculate the count the department of the posting table)
+
+SELECT count(salary)"salary count" FROM student; (calculate the count the salary of the posing table)
+
+SELECT max(salary)"highest salary from student table" FROM student; (calculate the max salary of the teacher from the student table)
+
+SELECT min(salary)"lowest salary from student table" FROM student; (calculate the min salary of the teacher from the student table)
+
+SELECT sum(salary)"sum of all the salary from the student table" from student; (calculate the sum of all the salary of the teacher from the student table)
+
+>>GROUP-BY FUNCTIONS:
+
+SELECT department,COUNT(*) FROM student GROUP BY department; (count the department and group by the count the all individual department insort department nu group karine count kari ape ke ketla department che em)
+
+SELECT id,COUNT(*),SUM(salary) FROM student GROUP by id; (sum the salary on the basis of count and group by by id)
+
+
+>>PLACING CONDITIONS ON THE HAVING CLAUSE:
+
+SELECT teachers_id,teachers_name, AVG(teachers_salary) AS "teachers average salary" FROM teachers GROUP BY teachers_experience HAVING COUNT(*) <=1;
+
+
+
+
+19)
+SELECT MAX(salary) FROM student GROUP BY age;
+SELECT MIN(age) FROM student GROUP BY salary;
+SELECT gender,count(gender) FROM student GROUP BY gender;
+
+20)
+CREATE DATABASE vivek_vehicle;
+use vivek_vehicle;
+CREATE TABLE vehicle( vno integer, type varchar(30), company varchar(30), price integer, qty integer);
+INSERT INTO vehicle VALUES("aw125","wagonr","maruti",250000,25)
+INSERT INTO vehicle VALUES("jeuq12","jeep","mahindra",4000000,15);
+INSERT INTO vehicle VALUES("jeuk25","suv","mitsubishi",2500000,18);
+INSERT INTO vehicle VALUES("jetyk25","mini-van","datsun",1500000,26);
+INSERT INTO vehicle VALUES("jjhtyh11","suv","maruti",2500000,18);
+INSERT INTO vehicle VALUES("jtyh11","mini-van","mahindra",350000,15);
+
+	i)SELECT type,AVG(price) AS "average price" FROM vehicle GROUP BY type HAVING qty>20    (error occure)
+	ii)SELECT company,COUNT(DISTINCT company) FROM vehicle GROUP BY company;
+	iii)SELECT type,SUM(price*qty) FROM vehicle GROUP BY type;
+
+21)
+	i)SELECT department,COUNT(*) FROM student GROUP BY department;
+	ii)SELECT max(doj),MIN(doj) FROM student;
+	iii)error occure
+
+22)
+	i)SELECT games_name,games_id FROM games;
+	ii)SELECT * FROM games WHERE games_id>3;
+	iii)SELECT * FROM games ORDER BY games_name;
+	iv)SELECT SUM(games_id),games_type FROM games GROUP BY games_type;
+
+23)
+	i)SELECT type,company FROM vehicle WHERE company = "mahindra";
+	ii)SELECT type,company,price FROM vehicle ORDER BY qty;
+	iii)SELECT company,MAX(price)"max price of car" FROM vehicle;
+	iv)SELECT MAX(price)"max price of car" FROM vehicle;
+	v) query occure
+
+27)
+	i)SELECT COUNT(department),department FROM paylevel GROUP BY department;
+	ii)SELECT MAX(pay),MIN(pay) FROM paylevel;
+	iii)SELECT name,pay FROM paylevel,student WHERE paylevel.department = student.department AND student.id <3;
+	iv)SELECT department,pay + allowance FROM paylevel WHERE department = "history";
+

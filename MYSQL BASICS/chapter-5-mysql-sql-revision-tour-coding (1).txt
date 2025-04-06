@@ -1,0 +1,161 @@
+CREATE DATABASE vivek_coding;
+
+USE vivek_coding;
+
+CREATE TABLE mysql(id integer,name char(20),marks integer);
+
+INSERT INTO mysql VALUES (1,'vivek',85);
+
+INSERT INTO mysql VALUES (2,'chauhan',NULL);
+
+>>SELECT COMMAND
+
+SELECT * FROM mysql;
+
+>>SELECT PARTICULAR ROWS COMMAND
+
+SELECT * FROM mysql WHERE name = "vivek";
+
+SELECT * FROM mysql WHERE id = 1;
+
+SELECT * FROM mysql WHERE id = 1 AND name = "vivek";
+
+SELECT * FROM mysql WHERE id = 1 OR name = "chauhan";
+
+>>SELECT PARTICULAR COLUMNS COMMAND
+
+SELECT id ,name FROM mysql;
+
+>>SELECT REDUNDANT DATA WITH KEYWORD DISTINCT COMMAND
+
+SELECT DISTINCT name FROM mysql;
+
+>>SELECT FROM ALL THE ROWS USING ALL-KEYWORD COMMAND
+
+SELECT ALL name FROM mysql;
+
+>>VIEWING STRUCTURE OF THE TABLE
+
+DESC mysql;
+
+>> PERFORMING SIMPLE CALCULATIONS
+
+SELECT 3*6;
+
+>>USING COLUMN ALIASES
+
+SELECT name AS n FROM mysql;
+
+>>CONDITION BASED ON A RANGE COMMAND
+
+SELECT teachers_salary,teachers_name FROM teachers WHERE teachers_salary BETWEEN 10000 AND 25000;
+
+>>CONDITION BASED ON A LIST COMMAND (IN AND NOT IN ONLY)
+
+SELECT * FROM students WHERE students_name IN ("smit" ,"jay");
+
+SELECT * FROM students WHERE students_name NOT IN ("smit" ,"jay");
+
+>>CONDITION BASED PATTERN MATCHES(% AND _ ONLY)
+
+SELECT students_name FROM students WHERE students_name LIKE "s%";
+
+SELECT students_name FROM students WHERE students_name LIKE "%n";
+
+>>SEARCHING FOR NULL
+
+SELECT id,name FROM mysql WHERE marks IS NULL;
+
+>> SQL NOT NULL CONSTRAINT
+
+CREATE TABLE customer ( ID INTEGER NOT NULL,FNAME VARCHAR(20) NOT NULL ,LNAME VARCHAR(20));
+
+>> SQL DEFAULT CONSTRAINT
+
+CREATE TABLE sample( id integer UNIQUE, name varchar(30), lname varchar(30), score integer DEFAULT 30);
+
+>>INSERT DATA INTO THE ANOTHER TABLE
+
+INSERT INTO prac SELECT * FROM mysql WHERE id > 1;
+
+>>MODIFYING THE DATA IN THE TABLE
+
+UPDATE mysql SET name = "vdc" WHERE id > 1;
+
+>>DELETING DATA FROM THE TABLE
+
+DELETE FROM mysql WHERE id > 1;
+
+>>ALTERING THE TABLE
+
+ALTER TABLE prac MODIFY (name char(50));  error occur
+
+>>DROPING THE TABLES
+
+DROP TABLE customer;
+
+
+
+**********************************************************
+
+>> solved problems under the question numbers:
+
+8) 
+CREATE DATABASE vivek_FOOD;
+USE vivek_FOOD;
+CREATE TABLE NUTRIENTS (NAME VARCHAR(20) PRIMARY KEY,CALORIES INTEGER);
+
+15)
+CREATE DATABASE vivek_garment;
+USE vivek_garment;
+CREATE TABLE GARMENT( gcode integer, gname varchar(30), size varchar(30), colour varchar(30), price integer(30));
+INSERT INTO garment VALUES(111,'tshirt','xl','red',1400);
+INSERT INTO garment VALUES(112,'jeans','l','blue',1600);
+INSERT INTO garment VALUES(113,'skirt','m','black',1100);
+INSERT INTO garment VALUES(114,'ladies jacket','xl','blue',4000);
+INSERT INTO garment VALUES(115,'trousers','l','brown',1500);
+INSERT INTO garment VALUES(116,'ladies top','l','pink',1200);
+	i) SELECT * from garment where size = 'xl';
+	ii)SELECT gcode,gname FROM garment WHERE gname LIKE "ladies%";
+	iii)SELECT gcode,gname,price FROM garment WHERE price BETWEEN 1000 AND 1500 
+	iv) UPDATE garment SET colour = "orange" WHERE gcode = 116;
+SELECT * FROM garment; (now you can see the all the changes)
+
+16)
+CREATE DATABASE vivek_softdrink;
+USE vivek_softdrink;
+CREATE TABLE softdrink( drinkcode integer, dname varchar(30), price integer, calories integer);
+INSERT INTO softdrink VALUES(101,"lime and lemon",20,120);
+INSERT INTO softdrink VALUES(102,"apple drink",18,120);
+INSERT INTO softdrink VALUES(103,"nature nectar",15,115);
+INSERT INTO softdrink VALUES(104,"green mango",15,140);
+INSERT INTO softdrink VALUES(105,"aam panna",20,135);
+INSERT INTO softdrink VALUES(106,"mango juice bahaar",12,150);
+	i)SELECT drinkcode,dname from softdrink WHERE calories >120;
+	ii)SELECT drinkcode,dname,calories FROM softdrink ORDER BY calories DESC;
+	iii)SELECT dname,price FROM softdrink WHERE price BETWEEN 12 AND 18;
+	iv)UPDATE softdrink SET price = price + 0.10*price;
+SELECT * FROM softdrink;
+
+18)
+CREATE DATABASE vivek_teachers;
+use vivek_teachers;
+CREATE TABLE student( id integer, name varchar(20), age integer, department varchar(20), doj date, salary integer, gender varchar(20));
+INSERT INTO student VALUES(1,"jugal",34,"computer sc","2017/01/10",12000,"male");
+INSERT INTO student VALUES(2,"sharmila",31,"history","2008/03/24",20000,"fe");
+INSERT INTO student VALUES(3,"sandeep",32,"mathematics","2016/12/12",30000,"male");
+INSERT INTO student VALUES(4,"sangeeta",35,"history","2015/07/01",40000,"fe");
+INSERT INTO student VALUES(5,"rakesh",42,"mathematics","2007/09/05",25000,"male");
+
+CREATE TABLE posting( id integer, department varchar(30), place varchar(30));
+INSERT INTO posting VALUES(1,"history","agra");
+INSERT INTO posting VALUES(2,"mathematics","raipur");
+INSERT INTO posting VALUES(3,"computer science","delhi");
+	i)SELECT * FROM student WHERE department = "history";
+	ii)SELECT name FROM student WHERE department = "mathematics" and gender = "fe";
+	iii)SELECT name FROM student ORDER BY doj ASC;
+	iv)SELECT name,salary,age FROM student WHERE gender = "male";
+	v)SELECT name,salary * 0.10 AS bonus FROM student;
+SELECT * FROM student;  
+
+  

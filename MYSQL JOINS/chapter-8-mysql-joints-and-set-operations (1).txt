@@ -1,0 +1,62 @@
+>>JOIN CLAUSE OF THE SQL SELECT FUNCTION:
+
+SELECT * FROM posting JOIN student; (IF YOU DONT WRITE THE CROSS IN THE QUERY BYDEFAULT THE CARTESIAN PRODUCT IS THE ANSWER)
+
+>>CROSS JOIN CLAUSE OF THE SQL SELECT FUNCTION:(IS NOT IMPORTANT AS SIR SAY)
+
+SELECT * FROM posting CROSS JOIN student;  (CARTESIAN OF THE TWO PRODUCT)
+
+SELECT department FROM posting LEFT JOIN student ON posting.department = student.name  (error occure)
+
+SELECT id FROM posting LEFT JOIN student ON posting.=id = student.id (error occure)
+
+>> NATURAL JOIN CLAUSE:(IS NOT IMPORTANT AS SIR SAY)
+
+SELECT * FROM posting NATURAL JOIN student;
+
+>> LEFT JOIN CLAUSE:
+
+SELECT posting.department,student.name FROM posting LEFT JOIN student ON posting.department = student.department (random number generate karke dega)
+
+SELECT posting.department,student.name FROM posting LEFT JOIN student ON posting.department = student.department ORDER BY name,department ASC; (order by is compulsury for the sequence order)
+
+>> RIGHT JOIN CLAUSE:
+
+SELECT posting.id,posting.department,student.name,student.doj FROM posting RIGHT JOIN student ON posting.department = student.department ORDER BY id ASC;
+
+SELECT posting.id,posting.department,student.name,student.doj FROM posting RIGHT JOIN student ON posting.department = student.department ORDER BY id DESC;
+
+>>INNER JOIN CLAUSE:
+
+SELECT posting.id,posting.department,student.name,student.salary FROM posting INNER JOIN student ON posting.department = student.department ORDER BY name ASC;(RETURN COMMON COLUMNS ON THE BASIS OF THE DEPARTMENT)
+
+SELECT posting.id,posting.department,student.name,student.salary FROM posting INNER JOIN student ON posting.department = student.department ORDER BY name DESC;
+
+>>UNION OPERATOR:(BY DEFAULT REMOVE DISTINCT VALUES IN THE RESULT)
+
+SELECT department FROM posting UNION SELECT department FROM posting2; (RETURN ALL THE DISTINCT VALUES)
+
+SELECT place FROM posting UNION ALL SELECT place FROM posting2; (RETURN ALL THE VALUES WITHOUT DISTINCT VALUES)
+
+>>MINUS OPERATOR:(IS ALSO KNOWN AS THE INNER JOIN CAUSE IN THE MYSQL CANT SUPPORT THE MINUS OPERATOR DIRECTLY)
+
+
+*****************************************************************************************************************
+SOLVED PROBLEMS:-
+
+3)
+SELECT student.name,student.salary FROM student WHERE name = "jugal";
+
+4)
+SELECT * FROM posting JOIN student ON student.id = posting.id WHERE gender = "fe";
+
+5)
+	i)SELECT sales.id,sales.name,location.locationid,location.locationname FROM sales,location WHERE sales.locationid = location.locationid
+	ii)SELECT sales.name,sales.sales,location.locationname FROM sales,location WHERE sales.locationid = location.locationid AND sales > 1300000
+	iii)SELECT sales.name FROM sales WHERE name LIKE "%singh%";
+	v)UPDATE sales SET locationid = 104 WHERE id = "s3";
+
+12)
+	i)SELECT sales.id,sales.name,sales.sales,location.locationid,location.locationname FROM sales,location WHERE sales.locationid = location.locationid AND sales > 1200000;
+	ii)SELECT COUNT(*) FROM location,sales WHERE sales.locationid = location.locationid AND sales.name = "%singh"   ans is 0.
+	ii)SELECT COUNT(*) FROM location,sales WHERE sales.locationid = location.locationid OR sales.name = "%singh" ans is 5.

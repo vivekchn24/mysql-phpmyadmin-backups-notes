@@ -1,0 +1,101 @@
+RESTAURANT DATABASE QUERIES:>>
+
+>>selecting bookid & book name from books table
+SELECT books_id, books_name FROM books;
+
+Selecting all the data from books table
+SELECT * FROM books;
+
+Selecting DISTINCT values from the table
+SELECT DISTINCT res_ordertype FROM res_order;
+
+Selcting data where book id is 3
+SELECT * FROM books
+WHERE books_id=3;
+
+Arranging data alphabtecially 
+SELECT * FROM books
+ORDER BY books_name;
+
+SELECT * FROM books
+ORDER BY books_name DESC;
+
+SPORTCLUB DATABASE QUERIES:>>
+
+>>selecting gamesid & game name from the games table
+SELECT games_id,games_name FROM games;
+
+selecting all the data from games table
+SELECT * FROM games;
+
+Selecting DISTINCT values from the table
+SELECT DISTINCT games_type FROM games;
+
+selecting data where games id is 2
+SELECT * FROM games WHERE games_id = 2;
+
+arranging data alphabtecialyy 
+SELECT * FROM games ORDER BY games_name;
+
+SELECT * FROM games ORDER BY games_name DESC; (for descending value or the order)
+
+HOSPITAL DATABASE QUERIES:>>
+
+>>selectiong hos_paymentid,hos_paymentname from hos_payments table
+SELECT hos_paymentid,hos_paymentname FROM hos_payments;
+
+selecting all the data from the hos_payments table
+SELECT * FROM hos_payments;
+
+selecting distinct values from the table unique value not the repeated values in the column
+SELECT DISTINCT hos_paymenttype FROM hos_payments;
+
+selecting data where paymenttype is online
+SELECT * FROM hos_payments WHERE hos_paymenttype = "online";
+
+arranging the data alphbetically by default in the accending order
+SELECT * FROM hos_payments ORDER BY hos_paymenttype;
+
+for the descending order 
+SELECT * FROM hos_payments ORDER BY hos_paymenttype DESC;
+
+LIBRARY DATABASE QUERIES:>>
+
+>>selecting student_id from the payment table
+SELECT student_id FROM payment;
+
+selecting all the data from payment table
+SELECT * FROM payment;
+
+selecting distinct values from the table unique value not the repeated values in the column
+SELECT DISTINCT payment_type FROM payment;
+
+selecting data where the bookissues_id is 2
+SELECT * FROM payment WHERE bookissues_id = 2;
+
+arranging the data alphabetically by default in the accending
+SELECT * FROM payment ORDER BY payment_type;
+
+for descending order
+SELECT * FROM payment ORDER BY payment_type DESC;
+
+SCHOOL MANAGEMENT DATABASE QUERIES:>>
+
+selecting teachers_name,teachers_id from teachers table
+SELECT teachers_name,teachers_id FROM teachers;
+
+selecting all the data from the teachers table
+SELECT * FROM teachers;
+
+selecting distinct values from the table unique value not the repeated values in the column
+SELECT DISTINCT teachers_salary FROM teachers;
+
+selecting data where the teachers_id is 2
+SELECT * FROM teachers WHERE teachers_id = 2;
+
+arranging the data alphabetically by default in the accending
+SELECT * FROM teachers ORDER BY teachers_name;
+
+for descending order
+SELECT * FROM teachers ORDER BY teachers_name DESC;
+

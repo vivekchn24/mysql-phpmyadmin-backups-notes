@@ -50,3 +50,5 @@ Includes:
 
 This repository is open for personal learning and reference.  
 Please give credit if shared or reused. 😊
+
+-⭐ This Core MYSQL Practice was completed as part of my data analytics training/Journey And the Core MYSQL Practice Done At <a href="https://futurevisioncomputers.com/">Future Vision Computer Institute</a>,Surat.
